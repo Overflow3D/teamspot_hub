@@ -1,6 +1,6 @@
 package hub
 
-import "golang.org/x/net/websocket"
+import "github.com/gorilla/websocket"
 
 type WsConnections struct {
 	hub  *Hub
