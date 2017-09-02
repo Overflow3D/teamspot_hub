@@ -1,5 +1,7 @@
 package hub
 
+import "fmt"
+
 type Hub struct {
 	connections map[*WsConnections]bool
 	broadcast   chan []byte
@@ -22,6 +24,7 @@ func (h *Hub) Run() {
 		select {
 		case conn := <-h.register:
 			h.connections[conn] = true
+			fmt.Println("Connected")
 		case conn := <-h.unregister:
 			if _, ok := h.connections[conn]; ok {
 				delete(h.connections, conn)

@@ -15,6 +15,6 @@ func main() {
 
 func wsHandler(h *hub.Hub) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
-		wshandler(h, ctx.Writer, ctx.Request)
+		handleWS(h, ctx.Writer, ctx.Request)
 	}
 }
